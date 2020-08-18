@@ -3,9 +3,12 @@
     grid-template-columns: 1fr 3fr;
     margin: 64px;
 
-    & .actions{
+    & > * {
         display: flex;
         flex-direction: column;
+    }
+    & .actions{
+        padding: 16px;
         border-right: 1px solid gray;
         & > button {
             margin-bottom: 8px;;
@@ -14,5 +17,11 @@
 
     & .presentation{
         margin-left: 24px;
+        & > pre {
+            background: #77727233;
+            border-radius: 8px;;
+            min-height: 80px;
+            padding: 16px;
+        }
     }
 }
