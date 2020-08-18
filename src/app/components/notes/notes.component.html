@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="actions">
+        <button mat-button color="warn" (click)="getNotes()">拿資料</button>
+        <button mat-button color="warn" (click)="updateFirstNote()">改最上面那個字串</button>
+        <button mat-button color="warn" (click)="deleteFirstNote()">刪除最後一個</button>
+    </div>
+
+    <div class="presentation">
+        <pre>
+            {{ notes | json }}
+        </pre>
+    </div>
+</div>
