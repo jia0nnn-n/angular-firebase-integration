@@ -1,7 +1,16 @@
 <div class="container">
     <div class="actions">
         <button mat-button color="warn" (click)="getNotes()">拿資料</button>
-        <button mat-button color="warn" (click)="updateFirstNote()">改最上面那個字串</button>
+        <!-- <button mat-button color="warn" (click)="updateFirstNote()">改最上面那個字串</button> -->
+
+
+        <form #noteForm="ngForm">
+            <input matInput placeholder="Placeholder" name="note" ngModel> <br>
+            <input name="urgent" ngModel type="checkbox">is urgent? <br>
+            <button mat-button type="submit" color="warn" (click)="addNote(noteForm)">新增</button>
+        </form>
+       
+
         <button mat-button color="warn" (click)="deleteFirstNote()">刪除最後一個</button>
     </div>
 

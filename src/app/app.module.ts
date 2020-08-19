@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireDatabaseModule } from "@angular/fire/database";
+import { FormsModule } from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModuleModule } from './material-module/material-module.module'
 import { AppComponent } from './app.component';
@@ -22,6 +23,7 @@ import environment from 'src/environments/environment';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     MaterialModuleModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
