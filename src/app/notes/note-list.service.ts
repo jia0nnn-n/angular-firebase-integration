@@ -8,29 +8,17 @@ import { Note } from '../model/note';
 })
 export class NoteListService {
   private noteCollection: AngularFireList<any>;
-
   constructor(private firebase: AngularFireDatabase) {
     this.noteCollection = this.firebase.list("realtime-notes")
   }
 
-  getNotes() {
-    console.log('get')
-    return this.noteCollection;
-  }
+  getNotes = () => this.noteCollection;
+  addNote = (note: Note) => this.noteCollection.push(note);
+  deleteNote = ($key: string) => this.noteCollection.remove($key);
 
-  addNote(note: Note){
-    console.log('add')
-    return this.noteCollection.push(note);
-  }
-
-  updateNote(note: Note){
-    console.log('update')
+  updateNote(note: Note) {
     let $key = note.$key;
     delete note.$key;
     this.noteCollection.update($key, note);
-  }
-
-  deleteNote($key: string){
-    this.noteCollection.remove($key);
   }
 }

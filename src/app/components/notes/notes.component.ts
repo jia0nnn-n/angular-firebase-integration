@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NoteListService } from 'src/app/notes/note-list.service';
 import { Note } from 'src/app/model/note';
-import { ThrowStmt } from '@angular/compiler';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -12,9 +11,10 @@ import { NgForm } from '@angular/forms';
 export class NotesComponent {
 
   notes: Note[] = [];
-  constructor(private noteService: NoteListService) { }
+  constructor(private noteService: NoteListService) {}
 
   getNotes() {
+    console.log('component get')
     this.notes.length = 0;
     this.noteService.getNotes()
       .snapshotChanges()
@@ -28,17 +28,11 @@ export class NotesComponent {
         })
       });
   }
-
-  updateFirstNote(){
-    this.notes[0].content = "dasdasdas!"
-    this.noteService.updateNote(this.notes[0])      
-    this.getNotes();
-  }
-
+  
   deleteFirstNote(){
     this.noteService.deleteNote(this.notes[0].$key);
   }
-
+  
   addNote(form: NgForm){
     this.noteService.addNote(form.value);
   }
