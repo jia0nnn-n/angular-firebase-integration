@@ -19,7 +19,8 @@ export class NotesComponent {
     this.noteService.getNotes()
       .snapshotChanges()
       .forEach(notesSp => {
-        console.log(notesSp);
+        // TODO: Performance problem, always the same snapshot if clicking too many time ?
+        this.notes = []
         notesSp.forEach(noteSp => {
           let item = noteSp.payload.toJSON();
           item['$key'] = noteSp.key;
