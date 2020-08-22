@@ -1,22 +1,29 @@
 <div class="container">
     <div class="actions">
-        <button mat-button color="warn" (click)="getNotes()">拿資料</button>
-        <!-- <button mat-button color="warn" (click)="updateFirstNote()">改最上面那個字串</button> -->
+        <button mat-raised-button color="primary" (click)="getNotes()">拿資料</button>
 
-
-        <form #noteForm="ngForm">
-            <input matInput placeholder="Placeholder" name="note" ngModel> <br>
-            <input name="urgent" ngModel type="checkbox">is urgent? <br>
-            <button mat-button type="submit" color="warn" (click)="addNote(noteForm)">新增</button>
+        <form class="add-note" #noteForm="ngForm">
+            <mat-form-field>
+                <mat-label>Message</mat-label>
+                <input matInput #message maxlength="100" placeholder="Writh something" name="note" ngModel>
+              </mat-form-field>
+            <mat-slide-toggle ngModel name="urgent">Is urgent?</mat-slide-toggle>
+            <button mat-flat-button type="submit" color="warn" (click)="addNote(noteForm)">新增</button>
         </form>
-       
 
-        <button mat-button color="warn" (click)="deleteFirstNote()">刪除最後一個</button>
+
+        <button mat-flat-button color="warn" (click)="deleteFirstNote()">刪除最後一個</button>
     </div>
 
-    <div class="presentation">
-        <pre>
+    <div class="presentation" >
+        <mat-slide-toggle [(ngModel)]="showRaw">Show Raw data</mat-slide-toggle>
+        <pre *ngIf="showRaw; else list">
             {{ notes | json }}
         </pre>
+        <ng-template #list>
+            <div>
+                <mat-card *ngFor="let note of notes">{{ note.note }}</mat-card>
+            </div>
+        </ng-template>
     </div>
 </div>

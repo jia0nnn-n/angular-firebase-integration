@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { NoteListService } from 'src/app/notes/note-list.service';
 import { Note } from 'src/app/model/note';
 import { NgForm } from '@angular/forms';
@@ -8,13 +8,15 @@ import { NgForm } from '@angular/forms';
   templateUrl: './notes.component.html',
   styleUrls: ['./notes.component.scss']
 })
-export class NotesComponent {
+export class NotesComponent implements OnInit {
 
   notes: Note[] = [];
-  constructor(private noteService: NoteListService) {}
-
+  showRaw: boolean = true;
+  constructor(private noteService: NoteListService) { }
+  ngOnInit() {
+    this.getNotes();
+  }
   getNotes() {
-    console.log('component get')
     this.notes.length = 0;
     this.noteService.getNotes()
       .snapshotChanges()
@@ -28,12 +30,12 @@ export class NotesComponent {
         })
       });
   }
-  
-  deleteFirstNote(){
+
+  deleteFirstNote() {
     this.noteService.deleteNote(this.notes[0].$key);
   }
-  
-  addNote(form: NgForm){
+
+  addNote(form: NgForm) {
     this.noteService.addNote(form.value);
   }
 }

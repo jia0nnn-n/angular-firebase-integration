@@ -30,4 +30,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 # ISSUES
 1. How to get angular-material style
-2. fetch note twice problem? [FIXED]
+2. [[FIXED](https://github.com/jia0nnn-n/angular-firebase-integration/commit/491807a2487914fa5937c204ac462c631994c05b)] fetch note twice problem? 
+3. input field color is black
