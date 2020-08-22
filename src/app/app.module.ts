@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
 import { NotesComponent } from './components/notes/notes.component';
 import environment from 'src/environments/environment';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import environment from 'src/environments/environment';
     AngularFireDatabaseModule,
     MaterialModuleModule,
     FormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
