@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NoteListService } from 'src/app/notes/note-list.service';
 import { Note } from 'src/app/model/note';
 import { NgForm } from '@angular/forms';

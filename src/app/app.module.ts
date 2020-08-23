@@ -10,11 +10,13 @@ import { CommonModule } from '@angular/common';
 import { NotesComponent } from './components/notes/notes.component';
 import environment from 'src/environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoteCloudStoreComponent } from './components/note-cloud-store/note-cloud-store.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NotesComponent
+    NotesComponent,
+    NoteCloudStoreComponent
   ],
   imports: [
     BrowserModule,
