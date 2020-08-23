@@ -29,6 +29,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 # ISSUES
-1. How to get angular-material style
+1. [[FIXED](https://github.com/jia0nnn-n/angular-firebase-integration/commit/50dc853ae3ba4d0b4f306c8a326e8c20544d5d24)]How to get angular-material style
 2. [[FIXED](https://github.com/jia0nnn-n/angular-firebase-integration/commit/491807a2487914fa5937c204ac462c631994c05b)] fetch note twice problem? 
 3. input field color is black
