@@ -1,18 +1,18 @@
 <div class="container">
     <div class="actions">
-        <button mat-raised-button color="primary" (click)="getNotes()">拿資料</button>
 
         <form class="add-note" #noteForm="ngForm">
             <mat-form-field>
                 <mat-label>Message</mat-label>
-                <input matInput #message maxlength="100" placeholder="Writh something" name="note" ngModel>
+                <input matInput maxlength="100" placeholder="Writh something" name="content" ngModel>
               </mat-form-field>
             <mat-slide-toggle ngModel name="isUrgent">Is urgent?</mat-slide-toggle>
-            <button mat-flat-button type="submit" color="warn" (click)="addNote(noteForm)">新增</button>
+            <button mat-flat-button type="submit" color="accent" (click)="addNote(noteForm)">CREATE</button>
         </form>
 
+        <button mat-raised-button color="primary" (click)="updateFirstNote()">1ST TO BE "CUSTOMIZED"</button>
 
-        <button mat-flat-button color="warn" (click)="deleteFirstNote()">刪除最後一個</button>
+        <button mat-flat-button color="warn" (click)="deleteLastNote()">DELETE LAST</button>
     </div>
 
     <div class="presentation" >
@@ -22,7 +22,7 @@
         </pre>
         <ng-template #list>
             <div>
-                <mat-card *ngFor="let note of notes">{{ note.note }}</mat-card>
+                <mat-card *ngFor="let note of notes">{{ note.note === "" ? "-" : note.note }}</mat-card>
             </div>
         </ng-template>
     </div>

@@ -17,12 +17,16 @@ export class NoteCloudStoreComponent implements OnInit {
   ngOnInit() {
     this.getNotes();
   }
+
+  addNote(form: NgForm) {
+    this.noteService.addNoteToCloudFirestore(form.value);
+  }
+
   getNotes() {
     this.notes.length = 0;
     this.noteService.getNotesFromCloudFirestore()
       .snapshotChanges()
       .forEach(actions => {
-        console.log('snap cloud', actions)
         this.notes = []
         actions.forEach(action => {
           let item = action.payload.doc;
@@ -33,13 +37,12 @@ export class NoteCloudStoreComponent implements OnInit {
       });
   }
 
-  deleteFirstNote() {
-    console.log(this.notes[0].$key)
-    this.noteService.deleteNoteOnCloudFirestore(this.notes[0].$key);
+  updateFirstNote() {
+    this.notes[0].content = 'CUSTOMIZED';
+    this.noteService.updateNote(this.notes[0]);
   }
 
-  addNote(form: NgForm) {
-    this.noteService.addNoteToCloudFirestore(form.value);
+  deleteLastNote() {
+    this.noteService.deleteNoteOnCloudFirestore(this.notes[this.notes.length - 1].$key);
   }
-
 }

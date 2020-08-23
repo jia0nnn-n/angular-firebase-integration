@@ -4,9 +4,9 @@
         <form class="add-note" #noteForm="ngForm">
             <mat-form-field>
                 <mat-label>Message</mat-label>
-                <input matInput #message maxlength="100" placeholder="Writh something" name="note" ngModel>
+                <input matInput maxlength="100" placeholder="Writh something" name="content" ngModel>
               </mat-form-field>
-            <mat-slide-toggle ngModel name="urgent">Is urgent?</mat-slide-toggle>
+            <mat-slide-toggle ngModel name="isUrgent">Is urgent?</mat-slide-toggle>
             <button mat-flat-button type="submit" color="accent" (click)="addNote(noteForm)">CREATE</button>
         </form>
 

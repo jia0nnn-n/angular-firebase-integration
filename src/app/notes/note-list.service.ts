@@ -31,6 +31,12 @@ export class NoteListService {
     note.isUrgent = !!note.isUrgent;
     this.noteCloudFirestoreCollection.add(note);
   }
+
+  updateNoteOnCloudFirestore(note: Note) {
+    let $key = note.$key;
+    delete note.$key;
+    this.noteCloudFirestoreCollection.doc($key).update(note);
+  }
   deleteNoteOnCloudFirestore = ($key: string) => {
     this.noteCloudFirestoreCollection.doc($key).delete();
   }
