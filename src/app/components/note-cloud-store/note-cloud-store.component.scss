@@ -1,0 +1,35 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+
+    & > * {
+        display: flex;
+        flex-direction: column;
+    }
+    & .actions{
+        padding: 16px;
+        border-right: 1px solid gray;
+        & > .add-note {
+            display: flex;
+            flex-direction: column;
+            margin: 24px;
+            padding :24px;
+            
+        }
+    }
+
+    & .presentation{
+        margin-left: 24px;
+        & > *:not(mat-slide-toggle) {
+            color: white;
+            background: #424242;
+            border-radius: 8px;;
+            min-height: 80px;
+            padding: 16px;
+            margin: 8px;
+        }
+        & > mat-card {
+            cursor: pointer;
+        }
+    }
+}
